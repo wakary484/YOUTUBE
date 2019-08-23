@@ -84,4 +84,72 @@ Ccl:
 35:44 SECRET MARKETING DIGITAL
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
+import numpy as pn
+
+import pandas as pd
+
+# Python: NUMPY | Numerical Python Arrays Tutorial  (from Silicon Valley !!! )
+# https://www.youtube.com/watch?v=8Mpc9ukltVA
+
+
+x=pn.full((20,20),7)
+
+y_1=pn.random.randint(1,100, size=600)
+
+a=pn.arange(1000)
+
+pn.random.schuffle(a)
+
+
+
+df=pd.read_excel(r"C:\Users\Marie\Desktop\GrdDecaL\test_001.xlsx")
+
+df.iloc[5,0]="anus"
+
+
+
+df_2=pd.read_excel(r"C:\Users\Marie\Desktop\GrdDecaL\test_001.xlsx","BBoP")
+
+df_2MACRO=pd.read_excel(r"C:\Users\Marie\Desktop\GrdDecaL\test_001.xlsm","BBoP")
+
+
+# (7min) Python Pandas Tutorial 3: Different Ways Of Creating DataFrame
+# https://www.youtube.com/watch?v=3k0HbcUGErE
+
+
+# From OpenClassRooms
+# (8min) Plongez dans la librairie NumPy - II- 1 - (Découvrez les librairies Python pour la Data Science)
+# https://www.youtube.com/watch?v=cEdHx-qf9Tk
+
+def calcul_inverse(value):
+    output=pn.empty(len(value))
+    for i in range(len(value)):
+        output[i]=1.0/value[i]
+    return output
+	
+tab_titan = pn.random.randint(1,100, size=100000000)	
+
+%timeit calcul_inverse(tab_titan)   # <<< Temps de calcul..
+%timeit (1.0/tab_titan)				# <<< Temps de calcul
+
+
+# From Learn Pandas
+# (4min)Pandas Apply - How to Apply Lambda Functions to your DataFrames
+# https://www.youtube.com/watch?v=L0wMml__Gow
+df.apply(lambda x: x['ColName']+100, axis=1)  # Rajoute 100 sur tous le elements de la colonne "ColName" de la DataFrame.
+
+# From Joe Tatusko
+# (5min) Use Python and Pandas to Work With Excel
+# https://www.youtube.com/watch?v=C2O3O_GydV4
+def double_num(num):
+    return num*2
+df['Doubled']=df['Value4'].apply(double_num)
+
+writer=pd.ExcelWriter('new_book.xlsx')
+df.to_excel(writer,'new_sheet')
+writer.save()
+#
+----------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
